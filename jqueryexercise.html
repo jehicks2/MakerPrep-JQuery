@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment 7-6</title>
+</head>
+<body>
+
+<div id= "container">
+	<h1></h1>
+		<p id ="target">kgjhghj</p>
+		<p>Water and Dirt, Water and Dirt</p>
+	<div id= 'first'>First</div>
+	<div class="holder">
+		<ul>
+			<li> "Water"</li>
+			<li>"Dirt"</li>
+		</ul>
+	</div>
+	<div class="holder">
+		<ul>
+			<li> "Water"</li>
+			<li>"Dirt"</li>
+		</ul>
+	</div>
+	<div id= 'last'>Last</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+<script>
+var allDIVS = $("div");
+var allULs = $("ul");
+
+$("p").css("color", "red");
+$('#container').css("background", "blue");
+
+$(".holder").css("border","1px solid black");
+$("ul li").css("font-weight", "bold");
+
+$("#container").prepend("<div>Hello</hello>");
+$("#container").append("<div>Goodbye!</div>");
+
+//$(.holder:first).prepend("<div>First</div>"")
+//$(.holder:last).prepend("<div>Last</div>")
+
+$("body").prepend("<div></div>");
+$("body").append("<div></div>");
+
+var newDetachedDiv = $("<div>This is a New div</div>").css("color", "purple");
+$("body").append(newDetachedDiv);
+
+
+var orphanNode = $('#target').detach();
+$('#container').append(orphanNode);
+
+$("ul").find("li").css( "color", "white" );
+
+var parentNode = $('#target').parent();
+var childrenNodes = parentNode.children();
+
+var colors = ['blue', 'green', 'yellow', 'black'],
+    colorIndex = 0,
+    $body = $('#container');
+
+setInterval(function(){ $body.css('background', colors[colorIndex++ % colors.length])}, 1000);
+
+</script>
+</body>
+</html>
